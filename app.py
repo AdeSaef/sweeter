@@ -259,7 +259,7 @@ def sign_in():
             # the token will be valid for 24 hours
             "exp": datetime.utcnow() + timedelta(seconds=60 * 60 * 24),
         }
-        token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+        token = jwt.encode(payload, SECRET_KEY, algorithm="HS256").decode('utf-8')
 
         return jsonify(
             {
